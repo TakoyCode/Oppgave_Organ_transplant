@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Oppgave_Organ_transplant
+﻿namespace Oppgave_Organ_transplant
 {
     internal class Game
     {
@@ -52,18 +46,25 @@ namespace Oppgave_Organ_transplant
                     Thread.Sleep(500);
                     break;
             }
-
-           
         }
 
         private void DeathScreen()
         {
-            bernt.IsAlive = false;
-
-            Console.Clear();
-            Console.WriteLine("Bernt klarte ikke å finne en ny nyre i tide, og døde av nyresvikt :(");
-            Console.WriteLine("Det er veldig trist at du kunne gjøre ingenting for å endre skjebnen hans.");
-            Console.ReadKey(true);
+            if (bernt.IsKidney1Healthy || bernt.IsKidney2Healthy)
+            {
+                Console.Clear();
+                Console.WriteLine("Bernt har allerede fått en ny fungerende nyre, kan ikke ombestemme deg nå!");
+                Console.Write("\nTrykk hvem som helst knapp for å gå tilbake...");
+                Console.ReadKey(true);
+            }
+            else
+            {
+                bernt.IsAlive = false;
+                Console.Clear();
+                Console.WriteLine("Bernt klarte ikke å finne en ny nyre i tide, og døde av nyresvikt :(");
+                Console.WriteLine("Det er veldig trist at du kunne gjøre ingenting for å endre skjebnen hans.");
+                Console.ReadKey(true);
+            }
         }
     }
 }

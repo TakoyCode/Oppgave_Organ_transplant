@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Oppgave_Organ_transplant
+﻿namespace Oppgave_Organ_transplant
 {
     internal class Person
     {
@@ -98,6 +92,7 @@ namespace Oppgave_Organ_transplant
             {
                 Console.WriteLine("Nyren din er for dårlig for å gi bort, er nesten som den ikke er der.");
                 Console.ReadKey(true);
+                GiveAwayKidneyTo(person);
             }
         }
 
